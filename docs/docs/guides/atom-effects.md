@@ -154,7 +154,7 @@ const userInfoState = atomFamily({
 
 ## State Synchronization Example
 
-It can be useful to use atoms as a local cached value of some other state such as a remote database, local storage, &c.  You could set the default value of an atom using the `default` property with a selector to get the store's value.  However, that is only a one-time lookup; if the store's value changes the atom value will not change.  With effects, we can subscribe to the store and update the atom's value whenever the store changes.  Calling `setSelf()` from the effect will initialize the atom to that value and will be used for the initial render.  If the atom is reset, it will revert to the `default` value, not the initialized value.
+It can be useful to use atoms as a local cached value of some other state such as a remote database, local storage, etc.  You could set the default value of an atom using the `default` property with a selector to get the store's value.  However, that is only a one-time lookup; if the store's value changes the atom value will not change.  With effects, we can subscribe to the store and update the atom's value whenever the store changes.  Calling `setSelf()` from the effect will initialize the atom to that value and will be used for the initial render.  If the atom is reset, it will revert to the `default` value, not the initialized value.
 
 ```jsx
 const syncStorageEffect = userID => ({setSelf, trigger}) => {
